@@ -23,20 +23,30 @@ class House:
         return False
 
     def __gt__(self, other):
-        return self.number_of_floor > other.number_of_floor
+        if isinstance(other, House):
+            return self.number_of_floor > other.number_of_floor
+        return False
 
     def __ge__(self, other):
-        return self.number_of_floor >= other.number_of_floor
+        if isinstance(other, House):
+            return self.number_of_floor >= other.number_of_floor
+        return False
 
     def __lt__(self, other):
-        return self.number_of_floor < other.number_of_floor
+        if isinstance(other, House):
+            return self.number_of_floor < other.number_of_floor
+        return False
 
     def __le__(self, other):
-        return self.number_of_floor <= other.number_of_floor
+        if isinstance(other, House):
+            return self.number_of_floor <= other.number_of_floor
+        return False
 
     def __ne__(self, other):
-        return self.number_of_floor != other.number_of_floor
-
+        if isinstance(other, House):
+            return self.number_of_floor != other.number_of_floor
+        return False
+    
     def __add__(self, value):
         if isinstance(value, int):
             return House(self.name, self.number_of_floor + value)
